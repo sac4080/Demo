@@ -1,4 +1,4 @@
-package com.example.demo.easyarray;
+package com.example.demo.easyarray.twopointer;
 
 //Problem Statement: Given an integer array sorted in non-decreasing order,
 // remove the duplicates in place such that each unique element appears only once.
@@ -8,13 +8,25 @@ package com.example.demo.easyarray;
 // then the first k elements of the array should hold the final result.
 // It does not matter what you leave beyond the first k elements.
 
+import java.util.Arrays;
+
 //Input: arr[]=[1,1,2,2,2,3,3]
 //Output: [1,2,3,_,_,_,_]
 //Explanation: Total number of unique elements are 3, i.e[1,2,3] and
 // Therefore return 3 after assigning [1,2,3] in the beginning of the array.
 public class removeDuplicates {
     public  static void main(String[] args){
-        int[] arr = {1,1,2,2,2,3,3};
+        int[] arr = {1,1,2,2,2,3,3,5,5,5,8,8};
 
+        int i=0;
+        for(int j=1;j<arr.length;j++){
+            if(arr[j] != arr[i]){
+                i++;
+                arr[i]=arr[j];
+            }
+        }
+
+        System.out.println(i+1 +" => count of unique element ");//i starts from zero
+        System.out.println(Arrays.toString(arr));
     }
 }
